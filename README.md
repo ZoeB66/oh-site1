@@ -1,4 +1,4 @@
-# ozlemhoscan.com — nasıl çalışır
+# — nasıl çalışır
 
 ## Yeni yazı eklemek
 `_posts` klasörüne, dosya adı `YIL-AY-GUN-baslik.md` formatında yeni bir dosya oluştur. Örnek: `2026-08-10-yeni-yazim.md`
