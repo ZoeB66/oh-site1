@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<section style="padding:72px 0;">
+  <div class="wrap" style="max-width:720px;">
+    <div class="eyebrow"><span class="ring sm"></span> {{ page.category }}</div>
+    <h1 style="font-size:38px;margin-bottom:14px;">{{ page.title }}</h1>
+    <div class="meta" style="margin-bottom:40px;">{{ page.date | date: "%-d %B %Y" }}</div>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</section>

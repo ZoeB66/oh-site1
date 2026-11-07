@@ -1,0 +1,29 @@
+{% assign s = site.data.strings %}
+<header>
+  <div class="nav">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title }}" style="height:34px;">
+    </a>
+    <div class="menu">
+      <div><a href="{{ '/' | relative_url }}">{{ s.nav.home }}</a></div>
+      <div>
+        <span>{{ s.nav.studio }} <span class="caret">▾</span></span>
+        <div class="sub">
+          <a href="{{ '/studio/dersler/' | relative_url }}">{{ s.nav.dersler }}</a>
+          <a href="{{ '/studio/egitimler/' | relative_url }}">{{ s.nav.egitimler }}</a>
+        </div>
+      </div>
+      <div>
+        <span>{{ s.nav.blog }} <span class="caret">▾</span></span>
+        <div class="sub">
+          {% assign published_posts = site.posts | where: "published", true %}
+          {% assign cats = published_posts | group_by: "category" | sort: "name" %}
+          {% for cat in cats %}
+            <a href="{{ '/blog/' | relative_url }}?kategori={{ cat.name | slugify }}">{{ cat.name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <div><a href="{{ '/hakkimda/' | relative_url }}">{{ s.nav.hakkimda }}</a></div>
+    </div>
+  </div>
+</header>

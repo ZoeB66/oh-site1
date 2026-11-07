@@ -1,0 +1,18 @@
+title: Özlem Hoşcan
+description: "Pilates, PilatesLab.Studio ve yazılarım"
+url: "https://ozlemhoscan.com"
+baseurl: ""
+
+markdown: kramdown
+permalink: /:title/
+
+plugins:
+  - jekyll-redirect-from
+
+# GitHub Pages builds this automatically with the 'github-pages' gem.
+# No custom plugins are used, so it works with the default safe build.
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

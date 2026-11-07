@@ -1,0 +1,83 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+{% assign s = site.data.strings.blog %}
+{% assign notes = site.data.strings.category_notes %}
+{% assign published_posts = site.posts | where: "published", true %}
+{% assign cats = published_posts | group_by: "category" | sort: "name" %}
+
+<section class="cat-hero">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
+    <div class="eyebrow"><span class="ring sm"></span> Blog</div>
+    <h1>{{ s.page_title_plain }} <span class="hl">{{ s.page_title_highlight }}</span></h1>
+    <div class="chips" id="chips">
+      {% for cat in cats %}
+      <span class="chip" data-cat="{{ cat.name | slugify }}">{{ cat.name }}</span>
+      {% endfor %}
+    </div>
+    <p class="cat-note" id="cat-note" style="display:none;"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cards" id="post-cards">
+      {% for post in published_posts %}
+      <a class="card" href="{{ post.url | relative_url }}" data-cat="{{ post.category | slugify }}">
+        <div class="thumb" {% if post.image %}style="background-image:url('{{ post.image | relative_url }}');background-size:cover;background-position:center;opacity:1;"{% endif %}></div>
+        <div class="body">
+          <div class="eyebrow"><span class="ring sm"></span> {{ post.category }}</div>
+          <h3>{{ post.title }}</h3>
+          {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncatewords: 18 }}</p>{% endif %}
+          <div class="meta">{{ post.date | date: "%-d %B %Y" }}</div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Kategori notları (ör. Bukowski atfı) — _data/strings.yml'den geliyor
+  var categoryNotes = {
+    {% for cat in cats %}
+      "{{ cat.name | slugify }}": {{ notes[cat.name] | default: "" | jsonify }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  function applyFilter(slug) {
+    var chips = document.querySelectorAll('#chips .chip');
+    var cards = document.querySelectorAll('#post-cards .card');
+    var note = document.getElementById('cat-note');
+
+    chips.forEach(function(chip){
+      chip.classList.toggle('active', chip.dataset.cat === slug);
+    });
+    cards.forEach(function(card){
+      card.style.display = (!slug || card.dataset.cat === slug) ? '' : 'none';
+    });
+    if (slug && categoryNotes[slug]) {
+      note.textContent = categoryNotes[slug];
+      note.style.display = 'block';
+    } else {
+      note.style.display = 'none';
+    }
+  }
+
+  document.querySelectorAll('#chips .chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var current = chip.classList.contains('active');
+      applyFilter(current ? null : chip.dataset.cat);
+      var url = new URL(window.location);
+      if (current) { url.searchParams.delete('kategori'); }
+      else { url.searchParams.set('kategori', chip.dataset.cat); }
+      window.history.replaceState({}, '', url);
+    });
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  var initial = params.get('kategori');
+  if (initial) { applyFilter(initial); }
+</script>

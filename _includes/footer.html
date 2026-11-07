@@ -1,0 +1,20 @@
+{% assign s = site.data.strings %}
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-brand"><img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title }}" style="height:24px;"></div>
+      <div class="foot-contact">
+        <a href="mailto:{{ s.footer.email }}" aria-label="E-posta" title="{{ s.footer.email }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+        </a>
+        <a href="{{ s.footer.instagram_url }}" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="{{ s.footer.linkedin_url }}" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="6.5" r="1" fill="currentColor" stroke="none"/><path d="M11 17v-4.5c0-1.5 1-2.5 2.5-2.5S16 11 16 12.5V17"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}. Tüm hakları saklıdır.</div>
+  </div>
+</footer>

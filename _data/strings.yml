@@ -1,0 +1,43 @@
+# Bu dosyadaki tüm metinleri istediğin gibi değiştirebilirsin.
+# Kod bilgisi gerekmez — sadece tırnak içindeki yazıyı değiştir, dosyayı kaydet.
+
+nav:
+  home: "Ana Sayfa"
+  studio: "PilatesLab.Studio"
+  dersler: "Dersler"
+  egitimler: "Eğitimler"
+  blog: "Blog"
+  hakkimda: "Hakkımda"
+
+home:
+  hero_eyebrow: "Pilates Eğitmeni"
+  hero_headline_line1: "Değişim,"
+  hero_headline_highlight: "hareketle"
+  hero_headline_line2: "başlar."
+  hero_lead: "Aklıma estikçe yazdıklarım, verdiğim dersler ve yolculuğumdan notlar — hepsi burada, tek bir yerde."
+  cta_primary: "Keşfet"
+  cta_secondary: "Blog'u Oku"
+  blog_section_eyebrow: "Blog · Pilates"
+  blog_section_title_plain: "Son"
+  blog_section_title_highlight: "yazılar"
+  see_all: "Tüm Pilates yazıları →"
+  studio_eyebrow: "PilatesLab.Studio"
+  studio_title_plain: "Aletli pilates, mat pilates,"
+  studio_title_highlight: "ve ileri yaş pilatesi"
+  studio_text: "Her seviyeye ve ihtiyaca uygun pilates dersleri. Detayları Dersler sayfasında bulabilirsin."
+  studio_cta: "Dersleri İncele"
+
+blog:
+  page_title_plain: "Konuna göre"
+  page_title_highlight: "gözat"
+
+footer:
+  email: "pilateslabstudio@gmail.com"
+  instagram_url: "https://www.instagram.com/pilateslab.studio"
+  linkedin_url: "https://www.linkedin.com/in/ozlemhoscan/"
+  copyright: "© {{ site.time | date: '%Y' }} Özlem Hoşcan. Tüm hakları saklıdır."
+
+# Kategori adının altında görünecek kısa notlar (opsiyonel).
+# Kategori adını front matter'daki "category:" ile birebir aynı yaz.
+category_notes:
+  "\"Sıradan Delilik Öyküleri\"*": "*Charles Bukowski"
